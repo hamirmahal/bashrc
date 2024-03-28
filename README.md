@@ -1,0 +1,3 @@
+# Bash Configuration
+
+[`.bashrc`](.bashrc)
