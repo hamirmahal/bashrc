@@ -48,6 +48,12 @@ else
 fi
 
 # This doesn't have to be in the color-coding section.
+function gitcommitreset() {
+  local last_git_commit_message=$(git log -1 --pretty=%B)
+  git reset --soft HEAD^
+  git commit -m "$last_git_commit_message"
+  git log
+}
 function gitter() {
   local repo_url=$1
   local repo_name=$(basename $repo_url .git)
