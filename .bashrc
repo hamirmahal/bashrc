@@ -56,9 +56,9 @@ function gitcommitreset() {
 }
 function gitter() {
   local repo_url=$1
-  local repo_name=$(basename $repo_url .git)
-  git clone $repo_url
-  cd $repo_name
+  # local repo_name=$(basename $repo_url .git)
+  # git clone $repo_url
+  # cd $repo_name
   rm -rf .git
   git init
   git add .
