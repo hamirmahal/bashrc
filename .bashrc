@@ -56,13 +56,15 @@ function gitcommitreset() {
 }
 function gitter() {
   local repo_url=$1
-  # local repo_name=$(basename $repo_url .git)
+  local repo_name=$(basename -s .git $repo_url)
+  local git_commit_message=${2:-"feat: functionality for foundational tasks"}
   # git clone $repo_url
   # cd $repo_name
   rm -rf .git
   git init
   git add .
-  git commit -m "feat: functionality for foundational tasks"
+  gh repo create --public "$repo_name"
+  git commit -m "$git_commit_message"
   git remote add origin $repo_url
   git push
 }
